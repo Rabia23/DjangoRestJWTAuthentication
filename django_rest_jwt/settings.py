@@ -44,7 +44,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'apps.authentication.apps.AuthenticationConfig'
+    'apps.authentication.apps.AuthenticationConfig',
+    'apps.example.apps.ExampleConfig'
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -134,6 +135,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # JWT settings
-JWT_TOKEN_EXPIRY = 2    # No. of days
+JWT_TOKEN_EXPIRY = 1    # No. of days
 JWT_ALGORITHM = 'HS256'  # Algorithm specified by JWT
 JWT_UTF = 'utf-8'

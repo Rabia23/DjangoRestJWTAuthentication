@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 from apps.authentication import urls as authentication_urls
+from apps.example import urls as example_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +26,5 @@ urlpatterns = [
 
 urlpatterns += [
     url(r'^api/auth/', include(authentication_urls)),
+    url(r'^api/', include(example_urls)),
 ]

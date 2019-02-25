@@ -21,10 +21,7 @@ class JWTUtility(object):
         """
         if user:
             data = {
-                # JWT expiration time (60 minutes maximum)
                 'exp': datetime.utcnow() + timedelta(days=settings.JWT_TOKEN_EXPIRY),
-                # issued at time
-                'iat': datetime.utcnow(),
                 'username': user.username,
             }
             token = jwt.encode(data, 'secret', algorithm=settings.JWT_ALGORITHM)
