@@ -1,0 +1,12 @@
+*.pyc
+*.xml
+*.iml
+/.idea
+.idea
+error.log
+dump.rdb
+eggs.csv
+feedback.csv
+errors_log.out
+logfile
+.DS*
