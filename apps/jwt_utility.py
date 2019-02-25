@@ -6,9 +6,9 @@ from datetime import datetime, timedelta
 from django_rest_jwt import settings
 
 
-class JWTHelper(object):
+class JWTUtility(object):
     """
-    JWT Helper contains utility methods for dealing with JWTokens.
+    JWT Utility contains utility methods for dealing with JWTokens.
 
     - JWT_TOKEN_EXPIRY: No. of minutes
     """
@@ -21,8 +21,11 @@ class JWTHelper(object):
         """
         if user:
             data = {
-                "exp": datetime.utcnow() + timedelta(days=settings.JWT_TOKEN_EXPIRY),
-                "username": user.username,
+                # JWT expiration time (60 minutes maximum)
+                'exp': datetime.utcnow() + timedelta(days=settings.JWT_TOKEN_EXPIRY),
+                # issued at time
+                'iat': datetime.utcnow(),
+                'username': user.username,
             }
             token = jwt.encode(data, 'secret', algorithm=settings.JWT_ALGORITHM)
             return str(token, settings.JWT_UTF)
@@ -48,6 +51,3 @@ class JWTHelper(object):
         """
         username_dict = jwt.decode(token, 'secret', algorithms=settings.JWT_ALGORITHM)
         return User.objects.filter(username=username_dict["username"]).first()
-
-
-
