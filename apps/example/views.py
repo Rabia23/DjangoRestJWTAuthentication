@@ -6,6 +6,9 @@ from apps.authentication.permission import UserAccessPermission
 
 
 class IndexView(APIView):
+    """
+    View that shows the example of user authentication and permission
+    """
 
     authentication_classes = (UserAuthentication,)
     permission_classes = (UserAccessPermission,)

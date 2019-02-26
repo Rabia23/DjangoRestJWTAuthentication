@@ -8,7 +8,7 @@ from django_rest_jwt import settings
 
 class JWTUtility(object):
     """
-    JWT Utility contains utility methods for dealing with JWTokens.
+    JWT Utility contains utility methods for dealing with JWTokens using Python JWT
 
     - JWT_TOKEN_EXPIRY: No. of minutes
     """

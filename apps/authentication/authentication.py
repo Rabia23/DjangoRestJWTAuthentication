@@ -6,6 +6,9 @@ from apps.jwt_utility import JWTUtility
 
 
 class UserAuthentication(authentication.BaseAuthentication):
+    """
+    Authenticate user using JWT utility
+    """
     def authenticate(self, request):
         if 'HTTP_AUTHORIZATION' in request.META:
             token = request.META.get('HTTP_AUTHORIZATION').replace("Bearer ", "")
